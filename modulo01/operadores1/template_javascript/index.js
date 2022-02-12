@@ -68,8 +68,9 @@ console.log( `Sua idade em dias é de: ${idade * 365} Dias`)
 console.log( `Sua idade em horas é de: ${idade * 8760} Horas`)
 
 //      QUESTÃO 04
-const numero1 = prompt("Digite um número abaixo.")
-const numero2 = prompt("Digite outro número abaixo.")
+const numero1 = Number(prompt("Digite um número abaixo."))
+const numero2 = Number(prompt("Digite outro número abaixo."))
+
 
 console.log(" O primeiro numero é maior que o segundo? ", numero1 > numero2)
 console.log(" O primeiro numero é igual ao segundo? ", numero1 == numero2)
