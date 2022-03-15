@@ -1,0 +1,14 @@
+Basicamente, os 7 passos para a resolução de problemas são:
+1° - Ter atenção no Enunciado, para conseguirmos ter um entendimento melhor do desafio proposto;
+
+2° - Retirar informações relevantes, para termos pontos de partidas do que é realmente necessário, para sua conclusão;
+
+3° - Pensar nas entradas(inputs) e saídas(outputs), para sabermos o que deve ser recebido, ou "expelido" pelo código, a partir do desafio proposto;
+
+4º - Fazer esquema visual, para saber como estruturar o código, sem antes codar de fato;
+
+5° - Fazer código feio, para entender qual a sua real funcionalidade e o caminho de estrutura do código;
+
+6° - Testar o código na força bruta e enfim, colocar o código que condiz com o proposto e saber se funcionará sua utilidade;
+
+7° - Refatorar, após testes e métodos, arrumar o código para que fique mais bem apresentável.
