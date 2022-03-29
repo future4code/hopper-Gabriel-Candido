@@ -24,17 +24,17 @@ input {
 button:focus {
     color: white;
 }
-
+/* deixei somente para saber onde mexi na etapa da lupa */
 img {
-    width: 100px;
+    
 }
 
 div>p:first-child {
     display: inline;
 }
-
+/* deixei somente para saber onde mexi na etapa da lupa */
 div img {
-    background: black;
+    
 }
 
 .botao-amarelo {
