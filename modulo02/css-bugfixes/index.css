@@ -8,7 +8,9 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    font-family: 'Roboto', sans-serif;
+}
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -126,7 +128,7 @@ td button:active{
 }
 
 .search-input{
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid black;
     border-top: 0;
     border-left: 0;
     border-right: 0;
