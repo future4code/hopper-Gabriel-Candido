@@ -1,0 +1,95 @@
+/* Estilos Gerais */
+
+*{
+    padding: 0;
+    margin: 0;
+}
+.cabecalho a{
+    display: flex;
+    align-items: center;
+}
+.cabecalho{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    border-bottom: 1px solid gray;
+}
+footer{
+    border-top: 1px solid gray;
+    padding: 2vw;
+    text-align: center;
+    color: orangered;
+}
+
+/* Página Principal */
+
+.area-input input{
+    border-radius: 10px;
+    width: 40vh;
+    height: 30px;
+}
+.area-input button{
+    width: 35px;
+}
+
+.main-flex{
+    display: flex;
+    
+}
+section{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+.main-cards a{
+    display: flex;
+    text-decoration: none;
+    color:orangered
+
+}
+.card{
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 10px;
+    margin: 1.5vw;
+    width: 40vw;
+    background-color: #ccc;
+    
+}
+.card:hover{
+    background-color: #666;
+}
+.card img{
+    width: 40vw;
+}
+.card p{
+    text-align: center;
+    font-size: 2vw;
+}
+
+/* Video 1 */
+.main-video-um{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1vw;
+}
+.main-video-um video{
+    width: 65vw;
+}
+
+/* Video 2 */
+
+.main-video-dois{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1vw;
+}
+.main-video-dois video{
+    width: 65vw;
+}
