@@ -42,7 +42,7 @@ section{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     
 }
 .main-cards a{
@@ -56,7 +56,7 @@ section{
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
     padding: 10px;
     margin: 1.5vw;
-    width: 40vw;
+    width: 40vh;
     background-color: #ccc;
     
 }
@@ -64,11 +64,11 @@ section{
     background-color: #666;
 }
 .card img{
-    width: 40vw;
+    width: 40vh;
 }
 .card p{
     text-align: center;
-    font-size: 2vw;
+    font-size: 2em;
 }
 
 /* Video 1 */
