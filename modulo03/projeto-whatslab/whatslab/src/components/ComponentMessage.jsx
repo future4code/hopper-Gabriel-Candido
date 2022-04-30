@@ -95,9 +95,9 @@ class ComponentMessage extends React.Component {
   };
 
   // -- Cancel Method --
-  delMessage = () => {
+  delMessage = (id) => {
     const deletedMessage = this.state.message.filter((idUser) => {
-      return idUser.idMessage !== this.state.message.idMessage;
+      return idUser.id !== id;
     });
     this.setState({ message: deletedMessage });
   };
@@ -128,7 +128,7 @@ class ComponentMessage extends React.Component {
             <img
               src={this.props.source}
               alt={this.props.alternative}
-              onClick={this.delMessage}
+              onClick={ () => this.delMessage(obj.id) }
             />
           </Whats>
         ))}
