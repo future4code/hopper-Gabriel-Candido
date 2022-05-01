@@ -8,12 +8,15 @@ const ContainerApp = styled.div`
   background-color: #ece5dd;
   width: 40%;
   margin: .5% auto;
-  height: 98vh;
+  height: 99vh;
   border: 1px solid black;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  @media screen and (max-width: 800px) {
+    width: 98%;
+  }
 `;
 
 export default function App() {
