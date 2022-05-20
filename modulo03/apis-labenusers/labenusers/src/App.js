@@ -48,6 +48,13 @@ class App extends React.Component {
     .catch(error => console.log(error))
   }
   
+  answerDelete = (id) => {
+    let answer = window.confirm("Tem certeza que quer cancelar?");
+    if (answer) {
+      this.deleteUser(id);
+    }
+  };
+
   deleteUser = (id) => {
 
     axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,{
@@ -88,7 +95,7 @@ class App extends React.Component {
         return(
           <RenderList
             showScreen={this.state.data}
-            remove={this.deleteUser}
+            remove={this.answerDelete}
             pageReturn={this.pageReturn}
           />
         )
