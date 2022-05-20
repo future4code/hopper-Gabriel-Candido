@@ -1,11 +1,12 @@
 import React from "react";
-import { Login , Form } from './Styles'
+import { Login , Form, Title } from './Styles'
 
 export class LoginScreen extends React.Component{
 
   render(){
     return(
       <Login>
+        <Title>Cadastro de Usuários</Title>
         <Form>
           <span>Nome:</span>
           <input

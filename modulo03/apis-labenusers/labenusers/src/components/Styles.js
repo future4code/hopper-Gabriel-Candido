@@ -24,6 +24,12 @@ export const Container = styled.div`
 
 
 // LoginScreen.jsx
+export const Title = styled.h1`
+  text-align: center;
+  font-size: 1.4em;
+  padding-bottom: 15%;
+`;
+
 export const Login = styled.div`
   height: 70vh;
   width: 35%;
@@ -56,7 +62,14 @@ export const Form = styled.form`
   input:focus{
     background: #ddd;  
   }
-  input:nth-child(5){
+  button {
     cursor: pointer;
+    padding: 0.6rem;
+    border-radius: 10px;
+    transition: 0.3s linear;
+    &:hover {
+      background-color: #ccca;
+      transform: scale(1.1);
+    }
   }
 `;
