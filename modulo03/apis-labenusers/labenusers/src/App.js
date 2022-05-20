@@ -2,12 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import { LoginScreen } from './components/LoginScreen';
 import { RenderList } from './components/RenderList';
+import { UserDetail } from './components/UserDetail';
 import { GlobalStyle, Container } from './components/Styles'
 
 class App extends React.Component {
 
   state = {
     data: [],
+    details: [],
     screen: 1,
     userName: '',
     userEmail: ''
@@ -47,6 +49,23 @@ class App extends React.Component {
     .then(response => this.setState({data: response.data}))
     .catch(error => console.log(error))
   }
+
+  getUserById = (id) => {
+    axios
+      .get(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+        {
+          headers: {
+            Authorization: "gabriel-candido-hopper"
+          }
+        }
+      )
+      .then((response) => {
+        this.setState({ details: response.data });
+        this.setState({ screen: 3 });
+      })
+      .catch((error) => alert("Ocorreu um erro na requisição de detalhes."));
+  };
   
   answerDelete = (id) => {
     let answer = window.confirm("Tem certeza que quer cancelar?");
@@ -77,7 +96,9 @@ class App extends React.Component {
   }
 
   pageReturn = () => {
-    this.setState({screen: 1})
+    if(this.state.screen > 1){
+      this.setState({screen: this.state.screen - 1})
+    }
   }
   changeScreen = () => {
     switch (this.state.screen) {
@@ -96,9 +117,17 @@ class App extends React.Component {
           <RenderList
             showScreen={this.state.data}
             remove={this.answerDelete}
+            detail={this.getUserById}
             pageReturn={this.pageReturn}
           />
         )
+      case 3:
+        return (
+          <UserDetail
+            detail={this.state.details}
+            pageReturn={this.pageReturn}
+          />
+        );
       default:
         break;
     }
