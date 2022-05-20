@@ -8,7 +8,7 @@ class App extends React.Component {
 
   state = {
     data: [],
-    screen: 2,
+    screen: 1,
     userName: '',
     userEmail: ''
   }
