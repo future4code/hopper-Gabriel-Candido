@@ -5,16 +5,16 @@ export class RenderList extends React.Component{
     return(
       <div>
         <h1>Usuários Cadastrados: </h1>
-        <ol>
+
           {this.props.showScreen && this.props.showScreen.map((data) => {
             return(
-              <>
+              <ol key={data.id}>
                 <li key={data.id}>{data.name}</li>
                 <button onClick={() => this.props.remove(data.id)}>Remove User</button>
-              </>
+              </ol>
             )
           })} 
-        </ol>
+
         <button onClick={this.props.pageReturn}>Voltar página</button>
       </div>
     )
