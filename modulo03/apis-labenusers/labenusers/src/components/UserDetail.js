@@ -13,6 +13,9 @@ export class UserDetail extends React.Component {
             <ul key={data.id}>
               <li>Nome: {data.name}</li>
               <li>Email: {data.email} </li>
+              <button onClick={() => this.props.delete(data.id)}>
+                Deletar Usuário
+              </button>
             </ul>
           );
         })}

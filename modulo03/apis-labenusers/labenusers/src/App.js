@@ -71,6 +71,9 @@ class App extends React.Component {
     let answer = window.confirm("Tem certeza que quer cancelar?");
     if (answer) {
       this.deleteUser(id);
+      if (this.state.screen === 3) {
+        this.pageReturn()
+      }
     }
   };
 
@@ -125,6 +128,7 @@ class App extends React.Component {
         return (
           <UserDetail
             detail={this.state.details}
+            delete={this.answerDelete}
             pageReturn={this.pageReturn}
           />
         );
