@@ -24,6 +24,7 @@ export class CreateTrack extends React.Component {
             placeholder="Music url"
             value={this.props.trackUrl}
             onChange={this.props.onChangeUrl}
+            maxLength="43"
           />
           <button onClick={this.props.addTrack}>Criar</button>
         </div>

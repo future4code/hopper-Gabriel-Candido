@@ -7,6 +7,8 @@ import { Main } from "./components/Main"
 import CreatePL  from "./pages/CreatePL.js"
 import { CreateTrack } from "./pages/CreateTrack.js"
 import { createPlaylist, getAllPlaylists, deletePlaylist, getPlaylistTracks, addTrackToPlaylist, removeTrackFromPlaylist } from "./services/ApiRequests"
+import { Home } from "./pages/Home"
+import { Footer } from "./components/Footer"
 
 class App extends React.Component {
   state = {
@@ -84,6 +86,11 @@ class App extends React.Component {
   onAdd = () => {
     return this.setState({add: !this.state.add})
   }
+  home = () => {
+    if(this.state.showScreen !== ''){
+      this.setState({showScreen: ''})
+    }
+  }
 
   screen = () => {
     switch (this.state.showScreen) {
@@ -106,36 +113,46 @@ class App extends React.Component {
             addTrack={this.handleAddTrackToPlaylist}
           />
         )
+      case '':
+        return(
+          <Home />
+        )
       default:
         break;
     }
   }
 
   render(){
-    console.log(this.state.playlistId)
     return (
-      <Container>
-        <GlobalStyle />
-        <div>
-          <Navigation onClickSearch={this.onSearch} onClickAdd={this.onAdd}/>
-          <Playlist 
-            value={this.state.playlistName} 
-            onChange={(e) => this.setState({playlistName: e.target.value})}
-            onClick={this.handleCreateUser}
-            onOff={this.state.add}
-            plts={this.state.allPlaylists}
-            remove={this.handleDeletePlaylist}
-            detail={this.handleGetPlaylistTracks}
-            addId={this.getId}
-          />
-        </div>
-        <div>
-          <Main searchBtn={this.state.busca}/>
-          <ContainerScreen>
-            {this.screen()}
-          </ContainerScreen>
-        </div>
-      </Container>
+      <div>
+        <Container>
+          <GlobalStyle />
+          <div>
+            <Navigation 
+              onClickHome={this.home}
+              onClickSearch={this.onSearch} 
+              onClickAdd={this.onAdd}
+            />
+            <Playlist 
+              value={this.state.playlistName} 
+              onChange={(e) => this.setState({playlistName: e.target.value})}
+              onClick={this.handleCreateUser}
+              onOff={this.state.add}
+              plts={this.state.allPlaylists}
+              remove={this.handleDeletePlaylist}
+              detail={this.handleGetPlaylistTracks}
+              addId={this.getId}
+            />
+          </div>
+          <div>
+            <Main searchBtn={this.state.busca}/>
+            <ContainerScreen>
+              {this.screen()}
+            </ContainerScreen>
+          </div>
+        </Container>
+        <Footer />
+      </div>
     );
   }
 }

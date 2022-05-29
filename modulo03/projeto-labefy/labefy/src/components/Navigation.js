@@ -11,7 +11,7 @@ export class Navigation extends React.Component{
     return(
       <ContainerNav>
         <ul>
-          <li>
+          <li onClick={this.props.onClickHome}>
             <img src={home} alt="Icon Home" />
             <p>Home</p>
           </li>

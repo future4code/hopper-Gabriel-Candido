@@ -133,6 +133,7 @@ export const WhiteP = styled.p`
   color: #FFF;
   padding-top: 5vh;
   padding-bottom: 2vh;
+  font-size: 1.5em;
 `;
 
 export const MusicTable = styled.div`
@@ -154,22 +155,34 @@ export const MusicTable = styled.div`
     border-radius: 20px;
     border: 3px solid #1A181B;
   }
-  td:nth-child(1), td:nth-child(2){
+  td{
+  }
+  td:nth-child(1){
     width: 20em;
     height: 2em;
     border-bottom: 1px solid #FFF;
     p{
-      max-width: 12em;
+      width: 8em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow:ellipsis;
+      &:nth-child(1){
+        font-size: 1.5em;
+        color: #05F140;
+      }
     }
+  }
+  td:nth-child(2){
+    text-align: center;
+    width: 20em;
+    height: 2em;
+    border-bottom: 1px solid #FFF;
   }
   td:nth-child(3){
     width: 4em;
     height: 2em;
     border-bottom: 1px solid #FFF;
-    text-align: right;
+    text-align: center;
     img {
       width: 1.5em;
       cursor: pointer;
@@ -224,5 +237,62 @@ export const ContainerTrack = styled.div`
         transform: scale(1.2);
       }
     }
+  }
+`;
+export const ContainerHome = styled.div`
+  height: 65vh;
+  width: 80vw;
+  color: #FFF;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-indent: .2em;
+  gap: 1em;
+  text-shadow: 1px 1px 1px #666;
+  text-overflow: clip;
+  div{
+    width: 50vw;
+  }
+  h1, h2{
+    width: 50%;
+    text-align: left;
+  }
+  h1 {
+    color: #05F140;
+  }
+  h2{
+    text-decoration: underline solid .12em #05F140;
+  }
+`;
+export const ContainerFooter = styled.div`
+  width: 100%;
+  height: 10vh;
+  background: #1A181B;
+  border-top: .1em solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img{
+    cursor: pointer;
+  }
+  span{
+    margin-left: -10vw;
+  }
+  span:nth-child(1){
+    height: 2%;
+    background: #FFF;
+    position: relative;
+  }
+  span:nth-child(2){
+    position: absolute;
+    height: .5%;
+    background-color: #FFF;
+    animation: progress-animation 10s infinite;
+  }
+  @keyframes progress-animation{
+    0% { width: 0%; }  
+    100% { width: 40% }
   }
 `;
