@@ -232,3 +232,12 @@ export const ContainerChat = styled.div`
     }
   }
 `;
+
+export const Message = styled.p`
+  height: 78vh;
+  width: 70%;
+  text-align: center;
+  padding-top:50%;
+  font-size: 1.4em;
+  color: #999;
+`;

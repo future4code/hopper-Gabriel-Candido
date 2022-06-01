@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getMatches } from '../services/ApiRequest'
-import { ContainerChat } from '../components/Style.js'
+import { ContainerChat, Message } from '../components/Style.js'
 import Return from '../assets/return.svg'
 import AstroMatch from "../assets/AstroMatch.png"
 
@@ -24,7 +24,9 @@ const MatchesScreen = (props) => {
         <img src={AstroMatch} alt="Logo do Astromatch"></img>
       </div>
       <ul>
-      {matchs.map((person) => {
+      {matchs && matchs.length === 0 ? (
+        <Message>Você ainda não deu Match com ninguém... Continue procurando seu/sua parceiro/a.</Message>
+      ) : matchs.map((person) => {
         return (
           <li  key={person.id}>
             <img src={person.photo} alt={person.photo_alt} />
