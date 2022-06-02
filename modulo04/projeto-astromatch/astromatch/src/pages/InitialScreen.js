@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FadeLoader } from "react-spinners";
 import { ContainerMatches, Buttons } from "../components/Style"
 import User from '../assets/user.svg'
 import AstroMatch from "../assets/AstroMatch.png"
@@ -7,30 +8,29 @@ import { getProfileToChoose, choosePerson, clearMatches } from "../services/ApiR
 function InitialScreen (props) {
 
   const [infos, setInfos] = useState([])
-  const [choice, setChoice] = useState(null)
+  const [choice, setChoice] = useState(undefined)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     handleGetProfileToChoose()
   }, [])
 
-  const deslike = () => {
-    setChoice(false)
+  const deslikeLike = (param) => {
+    setChoice(param)
     handleChoosePerson()
     handleGetProfileToChoose()
   }
-  const like = () => {
-    setChoice(true)
-    handleChoosePerson()
-    handleGetProfileToChoose()
-  }
+  
   const reset = () => {
     handleClearMatches()
     handleGetProfileToChoose()
   }
 
   const handleGetProfileToChoose = async () => {
+    setLoading(true);
     const response = await getProfileToChoose()
     setInfos(Object.values(response))
+    setLoading(false);
   }
   const handleChoosePerson = async () => {
     const id = infos.map(id => id.id)
@@ -47,7 +47,10 @@ function InitialScreen (props) {
         <img onClick={() => props.Chat('Chat')} src={User} alt="Ícone clicável para visualização de matchs"/>
       </div>
       
-        {infos.map((person) => {
+        {loading ? (
+        <FadeLoader />
+      ) : (
+        infos.map((person) => {
           return(
             <div key={person.id}>
               <img src={person.photo} alt={person.photo_alt} />
@@ -59,12 +62,12 @@ function InitialScreen (props) {
               </div>
             </div>
           )
-        })}
+        }))}
       
       <Buttons>
-        <p onClick={deslike}>X</p>
+        <p onClick={() => deslikeLike(false)}>X</p>
         <p onClick={reset}> Reset </p>
-        <p onClick={like}>♥</p>
+        <p onClick={() => deslikeLike(true)}>♥</p>
       </Buttons>
     </ContainerMatches>
   )
