@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getMatches } from '../services/ApiRequest'
+import { getMatches, clearMatches } from '../services/ApiRequest'
 import { ContainerChat, Message } from '../components/Style.js'
 import Return from '../assets/return.svg'
 import AstroMatch from "../assets/AstroMatch.png"
@@ -10,18 +10,23 @@ const MatchesScreen = (props) => {
 
   useEffect(() => {
     handleGetMatches()
-  }, [])
+  }, [matchs])
 
   const handleGetMatches = async () => {
     const response = await getMatches()
     setMatchs(response.matches)
   }
 
+  const handleClearMatches = async () => {
+    await clearMatches();
+  };
+
   return (
     <ContainerChat>
       <div>
         <img onClick={() => props.Matches('Initial')} src={Return} alt="Ícone clicavel para voltar a página de Matches" />
         <img src={AstroMatch} alt="Logo do Astromatch"></img>
+        <p onClick={() => handleClearMatches()}>Reset</p>
       </div>
       <ul>
       {matchs && matchs.length === 0 ? (

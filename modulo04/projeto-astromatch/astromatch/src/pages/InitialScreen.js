@@ -15,16 +15,15 @@ function InitialScreen (props) {
     handleGetProfileToChoose()
   }, [])
 
-  const deslikeLike = (param) => {
-    setChoice(param)
-    handleChoosePerson()
-    handleGetProfileToChoose()
-  }
-  
-  const reset = () => {
-    handleClearMatches()
-    handleGetProfileToChoose()
-  }
+  const buttons = (btnChoice) => {
+    if (btnChoice !== "reset") {
+      setChoice(btnChoice);
+      handleChoosePerson();
+    } else {
+      handleClearMatches();
+    }
+    handleGetProfileToChoose();
+  };
 
   const handleGetProfileToChoose = async () => {
     setLoading(true);
@@ -65,9 +64,9 @@ function InitialScreen (props) {
         }))}
       
       <Buttons>
-        <p onClick={() => deslikeLike(false)}>X</p>
-        <p onClick={reset}> Reset </p>
-        <p onClick={() => deslikeLike(true)}>♥</p>
+        <p onClick={() => buttons(false)}>X</p>
+        <p onClick={() => buttons("reset")}> Reset </p>
+        <p onClick={() => buttons(true)}>♥</p>
       </Buttons>
     </ContainerMatches>
   )

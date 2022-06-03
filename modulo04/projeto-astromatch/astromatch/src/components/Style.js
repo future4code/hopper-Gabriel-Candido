@@ -201,6 +201,15 @@ export const ContainerChat = styled.div`
       width: 50%;
       margin: 0 auto;
     }
+    p {
+      border: 1px solid red;
+      border-radius: 20%;
+      padding: 0.5em;
+      background-color: blue;
+      color: #fff;
+      text-shadow: 1px 1px 1px #000;
+      cursor: pointer;
+    }
   }
   ul {
     display: flex;
