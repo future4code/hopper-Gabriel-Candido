@@ -1,0 +1,330 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ddd;
+    margin: 0;
+}
+
+/* Pagina Principal */
+
+.cabecalho_conteudo_um{
+    background-image: url(./imagens/bg.jpg);
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 1px solid transparent;
+}
+.cabecalho_conteudo_um ul{
+    text-align: right;
+    margin-right: 40px;
+}
+.cabecalho_conteudo_um li{
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+}
+.cabecalho_conteudo_um a{
+    text-decoration: none;
+    padding: 5px;
+}
+.cabecalho_conteudo_um a:visited{
+    color: white;
+}
+.cabecalho_conteudo_um a:hover{
+    background-color: rgba(80, 63, 63, 0.5);
+}
+.cabecalho_conteudo_dois{
+    text-align: center;
+    color: #FFF;
+    margin-top: 150px;
+}
+.cabecalho_conteudo_dois h1{
+    font-size: 55px;
+    text-shadow: 2px 2px 2px #333;
+    margin-bottom: 5px;
+}
+.cabecalho_conteudo_dois p{
+    background-color: rgba(175, 135, 84, 0.5);
+    padding: 10px;
+    margin-top: 3px;
+    font-size: 25px;
+    display: inline-block;
+    border-bottom: solid 4px rgb(231, 104, 20);
+}
+section{
+    background-color: #FFF;
+    padding: 15px;
+    margin-top: 15px;
+    overflow: auto;
+}
+.secao-um h2{
+    font-size: 50px;
+    margin: 0 40% 10px 40%;
+    text-align: center;
+    text-shadow: 2px 2px 3px rgb(81, 74, 74);
+    padding: 0;
+    border-bottom: 2px solid #333;
+}
+.cards{
+    width: 32%;
+    float: left;
+    box-sizing: border-box;
+    
+}
+.cards img{
+    width: 100%;
+    display: block;
+}
+.cards p{
+    text-align: center;
+}
+.card1, .card2{
+    margin-right: 2%;
+}
+.cards p{
+    background-color: rgb(41, 40, 40);
+    color: white;
+    margin: 0;
+    padding: 15px;
+
+}
+.description{
+    line-height: 1.5;
+}
+.photo img{
+    float: right;
+}
+.redes-sociais{
+    text-align: center;
+}
+.redes-sociais a{
+    color: rgb(48, 31, 171);
+}
+footer{
+    background-color: black;
+    color: white;
+    padding: 18px;
+    text-align: center;
+}
+
+/* Pagina Projetos */
+
+#principal{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ddd;
+}
+.topo{
+   padding: 0;
+   margin: 0 0 15px 0;
+   width: 100%;
+   height: 400px;
+   background-image: url(./imagens/background_Projetos.jpg);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.topo a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2px;
+    margin-left: 3px;
+
+}
+.topo a:hover{
+    background-color: rgba(139, 87, 74, 0.5);
+
+}
+.topo ul{
+    text-align: right;
+    padding-top: 25px;
+    padding-right: 25px;
+
+}
+.topo li{
+    display: inline-block;
+    
+}
+.conteudo{
+    padding: 25px;
+    background-color: #ccc;
+}
+.conteudo{
+    background-color: white;
+}
+.footer-projetos{
+    background: rgb(255, 255, 255);
+    color: white;
+    text-align: center;
+    padding: 0  0 10px 0px;
+    border-top: rgb(225, 225, 225) solid 1px;
+    margin-top: 15px;
+}
+.footer-projetos h2{
+    color: #000;
+    
+}
+.footer-projetos li{
+    padding: 0 5px;
+    margin: 0;
+    display: inline-block;
+    
+}
+.footer-projetos a{
+    color: rgb(48, 31, 171);
+    
+}
+.footer-projetos ul{
+    font-style: italic;
+    padding: 2px;
+}
+.conteudo div{
+    display: inline-block;
+    padding: 0;
+    margin: 0 0 0 2%;
+}
+.conteudo a{
+    display: block;
+    margin-top: 400px;
+    padding: 4px;
+    background-color: #000;
+    text-align: center;
+    color: white;
+}
+.conteudo a:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.copyright{
+    background-color: #000;
+    padding: 20px;
+    margin: 0;
+}
+.projeto-um{
+    width: 47%;
+    height: 400px;
+    background-image: url(./imagens/blackjack_img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.projeto-dois{
+    width: 47%;
+    height: 400px;
+    background-image: url(./imagens/x_image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* BlackJack */
+
+.BJ{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ddd;
+}
+.cabecalho-BJ{
+    background-image: url(./imagens/blackjack_img2.jpg);
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 1px solid transparent;
+}
+.cabecalho-BJ h1{
+    text-align: center;
+    margin: 140px 0;
+    text-shadow: 1px 1px 2px #333;
+}
+.cabecalho-BJ ul{
+    text-align: right;
+    margin-right: 40px;
+}
+.cabecalho-BJ li{
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+}
+.cabecalho-BJ a{
+    text-decoration: none;
+    padding: 5px;
+    color: rgb(255, 255, 255);
+}
+.cabecalho-BJ a:hover{
+    background-color: rgba(68, 80, 63, 0.5);
+}
+.regras{
+    margin: 0 10px 10px 10px;
+    padding: 10px;
+}
+.regras h2, h3, p{
+    letter-spacing: 1.5px;
+}
+.dois-dedinhos{
+    text-indent: 25px;
+}
+
+/* Contato */
+
+.principal-contato{
+    background-color: white;
+    border: solid 1px #ccc;
+}
+.paginas{
+    padding: 50px;
+    margin: 5px;
+}
+.paginas ul{
+    text-align: right;
+    margin-right: 40px;
+}
+.paginas li{
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+    color: rgb(117, 117, 117);
+}
+.paginas a{
+    text-decoration: none;
+    padding: 5px;
+    color: rgb(68, 68, 68);
+}
+.paginas a:hover{
+    background-color: rgba(68, 80, 63, 0.5);
+}
+.texto-formulario{
+    text-align: center;
+    font-size: 25px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 40px;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#name, #email{
+    padding: 20px 40px;
+    border-color: #ccc;
+}
+
+#comentario{
+    height: 200px;
+    width: 330px;
+    margin: 10px 0 0 3px;
+}
+#text{
+    padding: 74px 65px;
+}
+.botao-formulario{
+    text-align: center;
+    padding: 0;
+    margin: 5%
+}
