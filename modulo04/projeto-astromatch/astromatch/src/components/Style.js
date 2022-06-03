@@ -21,8 +21,8 @@ const CardFlip = keyframes`
             transform: scale(1) rotateX(0);
   }
   50% {
-    -webkit-transform: scale(2.5) rotateX(-180deg);
-            transform: scale(2.5) rotateX(-180deg);
+    -webkit-transform: scale(1.2) rotateX(-180deg);
+            transform: scale(1.2) rotateX(-180deg);
   }
 `;
 
@@ -82,8 +82,8 @@ export const Card = styled.div`
   height: 65%;
   position: relative;
   box-shadow: 1px 1px 10px #CCC;
-  animation: ${CardFlip} 0.5s linear both;
-  -webkit-animation: ${CardFlip} 0.5s linear both;
+  animation: ${CardFlip} 0.6s linear both;
+  -webkit-animation: ${CardFlip} 0.6s linear both;
   img:nth-child(1){
     width: 100%;
     height: 100%;

@@ -38,7 +38,6 @@ function InitialScreen (props) {
   const handleClearMatches = async () => {
     await clearMatches()
   }
-  console.log(infos)
   return(
     <ContainerMatches>
       <div>
@@ -70,11 +69,14 @@ function InitialScreen (props) {
           )
         }))}
       
-      <Buttons>
-        <p onClick={() => buttons(false)}>X</p>
-        <p onClick={() => buttons("reset")}> Reset </p>
-        <p onClick={() => buttons(true)}>♥</p>
-      </Buttons>
+      {loading 
+      ? <p></p>
+      : <Buttons>
+          <p onClick={() => buttons(false)}>X</p>
+          <p onClick={() => buttons("reset")}> Reset </p>
+          <p onClick={() => buttons(true)}>♥</p>
+        </Buttons>
+      }
     </ContainerMatches>
   )
 }
