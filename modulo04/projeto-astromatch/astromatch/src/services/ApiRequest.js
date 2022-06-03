@@ -7,7 +7,7 @@ export const getProfileToChoose = async () => {
     const { data } = await axios.get(`${urlBase}/person`)
     return data
   } catch (error) {
-    console.log( error.response )
+    alert('Oops... Parece que tivemos um problema interno, favor tentar novamente mais tarde.')
   }
 } 
 
@@ -16,7 +16,7 @@ export const getMatches = async () => {
     const { data } = await axios.get(`${urlBase}/matches`)
     return data
   } catch (error) {
-    console.log( error.response )
+    alert('Oops... Parece que tivemos um problema interno, favor tentar novamente mais tarde.')
   }
 }
 
@@ -33,10 +33,9 @@ export const choosePerson = async (idPerson, choicePerson) => {
         'Content-Type': 'application/json'
       }
     })
-    console.log(data)
     return data
   } catch (error) {
-    console.log( error.response )
+    alert('Oops... Parece que tivemos um problema interno, favor tentar novamente mais tarde.')
   }
 }
 
@@ -45,6 +44,6 @@ export const clearMatches = async () => {
     const { data } = await axios.put(`${urlBase}/clear`)
     return data
   } catch (error) {
-    console.log( error.response )
+    alert('Oops... Parece que tivemos um problema interno, favor tentar novamente mais tarde.')
   }
 }

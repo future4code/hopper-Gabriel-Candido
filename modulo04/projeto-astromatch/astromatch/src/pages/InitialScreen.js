@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FadeLoader } from "react-spinners";
-import { ContainerMatches, Buttons } from "../components/Style"
+import { ContainerMatches, Card, Buttons, Reset } from "../components/Style"
 import User from '../assets/user.svg'
 import AstroMatch from "../assets/AstroMatch.png"
 import { getProfileToChoose, choosePerson, clearMatches } from "../services/ApiRequest"
@@ -38,7 +38,7 @@ function InitialScreen (props) {
   const handleClearMatches = async () => {
     await clearMatches()
   }
-
+  console.log(infos)
   return(
     <ContainerMatches>
       <div>
@@ -48,10 +48,17 @@ function InitialScreen (props) {
       
         {loading ? (
         <FadeLoader />
-      ) : (
-        infos.map((person) => {
+        ) : (
+        infos && infos[0] === null ? (
+          <Reset>
+            <p>♥</p>
+            <p>Oops, que pena... Parece que seus Matches acabaram. Para resetar seus Matches, favor apertar no botão azul abaixo.</p>
+            <p>♥</p>
+          </Reset>
+        ) 
+        : infos.map((person) => {
           return(
-            <div key={person.id}>
+            <Card key={person.id}>
               <img src={person.photo} alt={person.photo_alt} />
               <img src={person.photo} alt={person.photo_alt} />
                 
@@ -59,7 +66,7 @@ function InitialScreen (props) {
                 <h1>{person.name}, {person.age}</h1>
                 <p>{person.bio}</p>
               </div>
-            </div>
+            </Card>
           )
         }))}
       

@@ -63,54 +63,54 @@ export const ContainerMatches = styled.div`
       }
     }
   }
+`;
 
-  div:nth-child(2) {
+export const Card = styled.div`
+  border-radius: .5em;
+  width: 90%;
+  height: 65%;
+  position: relative;
+  box-shadow: 1px 1px 10px #CCC;
+  img:nth-child(1){
+    width: 100%;
+    height: 100%;
     border-radius: .5em;
-    width: 90%;
-    height: 65%;
-    position: relative;
-    box-shadow: 1px 1px 10px #CCC;
-    img:nth-child(1){
-      width: 100%;
-      height: 100%;
-      border-radius: .5em;
-      object-fit: cover;
-      filter: blur(10px);
-      
-    }
-    img:nth-child(2){
-      width: 100%;
-      height: 100%;
-      border-radius: .5em;
-      object-fit: contain;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    div{
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 8em;
-      width: 100%;
-    }
-    h1 {
-      height: 1.5em;
-      font-size: 24px;
-      padding-left: .5em;
-      margin: 0 auto;
-      color: #FFF;
-      text-shadow: 2px 2px 2px #222;
-    }
-    p {
-      height: 1.5em;
-      font-size: 18px;
-      padding-left: .7em;
-      margin: 0 auto;
-      color: #FFF;
-      text-shadow: 2px 2px 2px #222;
-    }
+    object-fit: cover;
+    filter: blur(10px);
+    
+  }
+  img:nth-child(2){
+    width: 100%;
+    height: 100%;
+    border-radius: .5em;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  div{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 8em;
+    width: 100%;
+  }
+  h1 {
+    height: 1.5em;
+    font-size: 24px;
+    padding-left: .5em;
+    margin: 0 auto;
+    color: #FFF;
+    text-shadow: 2px 2px 2px #222;
+  }
+  p {
+    height: 1.5em;
+    font-size: 18px;
+    padding-left: .7em;
+    margin: 0 auto;
+    color: #FFF;
+    text-shadow: 2px 2px 2px #222;
   }
 `;
 
@@ -202,7 +202,6 @@ export const ContainerChat = styled.div`
       margin: 0 auto;
     }
     p {
-      border: 1px solid red;
       border-radius: 20%;
       padding: 0.5em;
       background-color: blue;
@@ -249,4 +248,27 @@ export const Message = styled.p`
   padding-top:50%;
   font-size: 1.4em;
   color: #999;
+`;
+
+export const Reset = styled(ContainerMatches)`
+  border-radius: .5em;
+  width: 90%;
+  height: 65%;
+  box-shadow: 1px 1px 10px #CCC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p:nth-child(1), p:nth-child(3){
+    color: #F00;
+    font-size: 2em;
+    padding: 1em;
+  }
+  p:nth-child(2){
+    text-align: center;
+    font-size: 1.4em;
+    width: 90%;
+    color: #000;
+    text-shadow: 2px 2px 2px #CCC;
+  }
 `;
