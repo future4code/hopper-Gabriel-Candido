@@ -11,7 +11,7 @@ const HomePage = () => {
       <h1>LabeX</h1>
       <div>
         <Button text="Ver Viagens" click={() => navigate("/trips/list")}/>
-        <Button text="Área de Admin" />
+        <Button text="Área de Admin" click={() => navigate("/admin/trips/list")}/>
       </div>
     </ContainerHP>
   )

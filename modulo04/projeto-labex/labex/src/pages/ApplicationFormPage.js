@@ -1,72 +1,103 @@
 import Button from "../components/Button";
 import { ContainerAFP } from "../components/Styles";
+import { applyToTrip } from '../services/ApiRequest';
 
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import useGetCountries from "../hooks/useGetCountries";
 import useGetTrip from "../hooks/useGetTrip";
-import useInputs from "../hooks/useInputs";
+import useForm from "../hooks/useForm";
 
 const ApplicationFormPage = () => {
 
+  const navigate = useNavigate();
   const {data:countries} = useGetCountries();
   const {data:trips} = useGetTrip();
-  const {data:input, handleData:handleInput} = useInputs();
-  const navigate = useNavigate();
+  const {form, handleInputChange, clear} = useForm({
+    id: '',
+    name: '',
+    age: '',
+    text: '',
+    country: '',
+    profession: ''
+  });
+
+  const handleSubmit = () => {
+    const body = {
+      name: form.name,
+      age: form.age,
+      applicationText: form.text ,
+      profession: form.profession,
+      country: form.country
+    };
+
+    applyToTrip(form.id, body, clear);
+  };
 
   return (
     <ContainerAFP>
-      <h1>Candidatar-se</h1>
+      <h1>Inscreva-se para uma viagem</h1>
       <Button click={() => navigate("/trips/list")} text={"Voltar"}/>
-      <form >
+      <form onSubmit={handleSubmit}>
 
-        <select onChange={handleInput} value={input.id} name="id" required={true}>
-          <option value="">Viagem</option>
+        <select onChange={handleInputChange} value={form.id} name="id" required>
+          <option value="">Viagem</option>;
           {trips.map((trip) => (
             <option key={trip.id} value={trip.id}>{trip.name}</option>
-          ))}
+          ))};
         </select>
 
         <input 
-          name="person" 
+          name="name" 
           placeholder="Nome" 
-          onChange={handleInput} 
-          value={input.person}
-          minLength="3"
-          required={true}
+          onChange={handleInputChange} 
+          value={form.name}
+          pattern="[A-Za-z]{3,}"
+          title="Deve conter no mínimo 3 letras"
+          required
+        />
+
+        <input 
+          type='number'
+          name="age" 
+          placeholder="Idade" 
+          onChange={handleInputChange} 
+          value={form.age}
+          min={18}
+          required
         />
 
         <input 
           name="text" 
-          placeholder="Mensagem" 
-          onChange={handleInput} 
-          value={input.text} 
-          minLength="15"
-          required={true}
+          placeholder="Texto de candidatura" 
+          onChange={handleInputChange} 
+          value={form.text} 
+          pattern=".{15,}"
+          title="Deve conter no mínimo 15 letras"
+          required
         />
+
+        <select onChange={handleInputChange} value={form.country} name="country" required>
+          <option value="">País</option>
+          {countries.map((country, index) => (
+            <option key={index} value={country.nome}>{country.nome}</option>
+            ))};
+        </select>
 
         <input 
           name="profession" 
           placeholder="Profissão" 
-          onChange={handleInput} 
-          value={input.profession}
-          minLength="5"
-          required={true}
+          onChange={handleInputChange} 
+          value={form.profession}
+          pattern=".{5,}"
+          title="Deve conter no mínimo 5 letras"
+          required
         />
-
-        <select onChange={handleInput} value={input.country} name="country" required={true}>
-          <option value="">País</option>
-          {countries.map((country, index) => (
-            <option key={index} value={country.nome}>{country.nome}</option>
-          ))}
-        </select>
 
         <Button text="Candidatar-se"/>
 
       </form>
     </ContainerAFP>
-  )
+  );
 };
 
 export default ApplicationFormPage;

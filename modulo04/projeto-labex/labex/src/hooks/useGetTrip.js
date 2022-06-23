@@ -15,9 +15,7 @@ const useGetTrip = () => {
     setLoading(false);
   }
 
-  return { data, loading }
+  return { data, loading };
 }
 
 export default useGetTrip;
-
- 

@@ -34,8 +34,8 @@ const Rotate = keyframes`
   }
 `;
 
-export const StyledButton = styled.p`
-  padding: 1em;
+export const StyledButton = styled.button`
+  padding: 1em 1.5em;
   background-color: #335863;
   border-radius: 10px;
   color: #fff;
@@ -63,7 +63,7 @@ export const Spinner = styled.div`
   height: 60px;
   padding: 10px;
   border: 10px solid black;
-  border-top: 10px solid gold;
+  border-top: 10px solid #335863;
   border-radius: 50%;
   animation: ${Rotate} 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 `;
@@ -153,29 +153,33 @@ export const ContainerListTP = styled.div`
 `;
 
 export const ContainerAFP = styled.div`
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   h1 {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
+    text-align: center;
   }
   form {
     border: 1px solid #ccc;
+    border-radius: 5px;
     box-shadow: 1px 2px 10px #ccc;
-    width: 25%;
-    height: 60vh;
-    margin-top: 2.5em;
+    width: 35%;
+    height: 70vh;
+    margin-top: 1.5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: .5em;
   }
   input, select {
     width: 80%;
     padding: 1em;
+    border: 1px solid #000;
+    border-radius: 10px;
     cursor: pointer;
   }
   @media screen and (max-width: 800px) {
@@ -183,4 +187,37 @@ export const ContainerAFP = styled.div`
         width: 90%;
       }
     }
+`;
+
+export const ContainerLP = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    margin-bottom: .5em;
+    text-align: center;
+  }
+  form {
+    width: 35%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    input{
+      width: 80%;
+      padding: 1em;
+      border: 1px solid #000;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    div {
+      display: flex;
+      gap: 1em;
+    }
+  }
 `;

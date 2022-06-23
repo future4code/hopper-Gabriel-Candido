@@ -15,7 +15,7 @@ const ListTripsPage = () => {
       <h1>Trips List</h1>
       <div>
         <Button click={() => navigate("/")} text={"Voltar"}/>
-        <Button click={() => navigate("/trips/application")} text={"Candidatar-se"}/>
+        <Button click={() => navigate("/trips/application")} text={"Inscreva-se"}/>
       </div>
       {loading ? (<Loading />) : (trips.map((trip) => (
         <ul key={trip.id}>

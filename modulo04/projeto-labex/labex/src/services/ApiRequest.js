@@ -9,7 +9,7 @@ export const getCountries = async () => {
     const { data } = await axios.get(countriesUrl)
     return data
   } catch (err) {
-    console.log(err.response)
+    console.log(err.response.data.message)
   }
 }
 
@@ -18,6 +18,29 @@ export const getTrips = async () => {
     const { data } = await axios.get(`${baseUrl}/trips`)
     return data.trips;
   } catch (err) {
-    console.log(err.response);
+    console.log(err.response.data.message);
+  }
+}
+
+export const applyToTrip = async (id, body, clear) => {
+  try {
+    const { data } = await axios.post(`${baseUrl}/trips/${id}/apply`, body)
+    console.log(data)
+  } catch (err) {
+    alert(err.response.data.message);
+  } finally {
+    clear()
+  }
+}
+
+export const login = async (body,clear, navigate) => {
+  try {
+    const { data } = await axios.post(`${baseUrl}/login`, body)
+    localStorage.setItem("token", data.token)
+    navigate("/admin/trips/list")
+  } catch (err) {
+    alert(err.response.data.message);
+  } finally {
+    clear()
   }
 }
