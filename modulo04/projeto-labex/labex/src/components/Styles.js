@@ -221,3 +221,40 @@ export const ContainerLP = styled.div`
     }
   }
 `;
+
+export const ContainerADMP = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  div:nth-child(2){
+    button{
+      margin: 0 1em 2em 1em;
+    }
+  }
+  `;
+export const TripsADMP = styled.div`
+  width: 50%;
+  padding: 2em 1em;
+  box-shadow: 1px 3px 5px 2px #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover{
+    transform: scale(1.05)
+  }
+  img {
+    width: 2em;
+    border-radius: 50%;
+    padding: 5px;
+    &:hover{
+      background: #ccc;
+    }
+  }
+`;
