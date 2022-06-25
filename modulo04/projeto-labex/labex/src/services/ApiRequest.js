@@ -22,7 +22,14 @@ export const getTrips = async () => {
   }
 }
 
-export const applyToTrip = async (id, body, clear) => {
+export const applyToTrip = async (id, form, clear) => {
+  const body = {
+    name: form.name,
+    age: form.age,
+    applicationText: form.text ,
+    profession: form.profession,
+    country: form.country
+  };
   try {
     await axios.post(`${baseURL}/trips/${id}/apply`, body)
   } catch (err) {
@@ -45,12 +52,12 @@ export const login = async (body, clear, navigate) => {
 }
 
 export const deleteTrip = async (id, tripName) => {
-  try {
-    const headers = {
-      headers: {
-        auth: localStorage.getItem("token")
-      }
+  const headers = {
+    headers: {
+      auth: localStorage.getItem("token")
     }
+  }
+  try {
     if(window.confirm(`${tripName} será apagada para sempre, você tem certeza?`)){
       await axios.delete(`${baseURL}/trips/${id}`, headers)
     }
@@ -60,14 +67,13 @@ export const deleteTrip = async (id, tripName) => {
 }
 
 export const getTripDetail = async (id) => {
-  try {
-    const headers = {
-      headers: {
-        auth: localStorage.getItem("token")
-      }
+  const headers = {
+    headers: {
+      auth: localStorage.getItem("token")
     }
+  }
+  try {
     const { data } = await axios.get(`${baseURL}/trip/${id}`, headers)
-    console.log(data.trip)
     return data.trip
   } catch (err) {
     alert(err.response.data.message)
@@ -75,32 +81,38 @@ export const getTripDetail = async (id) => {
 }
 
 export const decideCandidate = async (choice, tripId, candidateId) => {
+  const headers = {
+    headers: {
+      auth: localStorage.getItem("token")
+    }
+  }
+  const body = {
+    "approve": choice
+  }
   try {
-    const headers = {
-      headers: {
-        auth: localStorage.getItem("token")
-      }
-    }
-    const body = {
-      "approve": choice
-    }
     await axios.put(`${baseURL}/trips/${tripId}/candidates/${candidateId}/decide`, body, headers)
   } catch (err) {
     alert(err.response.data.message)
   }
 }
 
-export const createTrip = async (body, clear) => {
-  try {
-    const headers = {
-      headers: {
-        auth: localStorage.getItem("token")
-      }
+export const createTrip = async (form, clear) => {
+  const body = {
+    name: form.name,
+    planet: form.planet,
+    date: form.date,
+    description: form.description,
+    durationInDays: form.duration
+  }
+  const headers = {
+    headers: {
+      auth: localStorage.getItem("token")
     }
+  }
+  try {
     await axios.post(`${baseURL}/trips`, body, headers)
+    clear()
   } catch (err) {
     alert(err.response.data.message)
-  } finally {
-    clear()
   }
 } 

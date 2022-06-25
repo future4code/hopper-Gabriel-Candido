@@ -147,10 +147,10 @@ export const ContainerListTP = styled.div`
     }
   }
   @media screen and (max-width: 800px) {
-      ul{
-        width: 90%;
-      }
+    ul{
+      width: 90%;
     }
+  }
 `;
 
 export const ContainerAFP = styled.div`
@@ -178,10 +178,11 @@ export const ContainerAFP = styled.div`
   }
   input, select {
     width: 80%;
-    padding: 1em;
     border: 1px solid #000;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 1.15em;
+    padding: .8em;
   }
   @media screen and (max-width: 800px) {
     form {
@@ -211,7 +212,8 @@ export const ContainerLP = styled.div`
     gap: 1.5em;
     input{
       width: 80%;
-      padding: 1em;
+      font-size: 1.2em;
+      padding: .8em;
       border: 1px solid #000;
       border-radius: 10px;
       cursor: pointer;
@@ -219,6 +221,11 @@ export const ContainerLP = styled.div`
     div {
       display: flex;
       gap: 1em;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    form {
+      width: 90%;
     }
   }
 `;
@@ -236,10 +243,10 @@ export const ContainerADMP = styled.div`
       margin: 0 1em 2em 1em;
     }
   }
-  `;
+`;
+
 export const TripsADMP = styled.div`
   width: 50%;
-  padding: 2em 1em;
   box-shadow: 1px 3px 5px 2px #ccc;
   border-radius: 5px;
   display: flex;
@@ -250,13 +257,20 @@ export const TripsADMP = styled.div`
   &:hover{
     transform: scale(1.05)
   }
+  p {
+    width: 100%;
+    padding: 2em 1em;
+  }
   img {
     width: 3em;
     border-radius: 50%;
-    padding: 5px;
+    padding: 10px;
     &:hover{
       background: #ccc;
     }
+  }
+  @media screen and (max-width: 800px) {
+    width: 90%;
   }
 `;
 
@@ -274,6 +288,7 @@ export const ContainerTDP = styled.div`
 `;
 
 export const TripDetail = styled.div`
+  width: 100%;
   padding-bottom: 35px;
   margin-bottom: 1em;
   border-bottom: 1px solid black;
@@ -291,6 +306,9 @@ export const TripDetail = styled.div`
   p {
     padding: .3em;
   }
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }
 `;
 
 export const ContainerCandidates = styled.div`
@@ -298,12 +316,21 @@ export const ContainerCandidates = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media screen and (max-width: 800px) {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+  }
+  span {
+    color: #335863;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 `;
 
 export const Candidates = styled.div`
   width: 30%;
   height: 35vh;
-  padding: 1%;
   margin: 1%;
   background: #eee;
   border-left: 10px solid #335863;
@@ -312,7 +339,12 @@ export const Candidates = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (max-width: 800px) {
+    width: calc(100% - 10px);
+    height: 40vh;
+  }
   p {
+    padding: 2%;
     word-wrap: break-word;
   }
   p:nth-child(5){
@@ -335,6 +367,7 @@ export const Candidates = styled.div`
     align-items: center;
     justify-content: space-around;
     gap: 5px;
+    padding: 1%;
     img {
       width: 1.5em;
       cursor: pointer;

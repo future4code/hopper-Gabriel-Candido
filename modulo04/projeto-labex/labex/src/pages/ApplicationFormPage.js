@@ -21,16 +21,9 @@ const ApplicationFormPage = () => {
     profession: ''
   });
 
-  const handleSubmit = () => {
-    const body = {
-      name: form.name,
-      age: form.age,
-      applicationText: form.text ,
-      profession: form.profession,
-      country: form.country
-    };
-
-    applyToTrip(form.id, body, clear);
+  const handleSubmit = (e) => {
+    e.preventDefault() 
+    applyToTrip(form.id, form, clear);
   };
 
   return (
@@ -41,7 +34,7 @@ const ApplicationFormPage = () => {
 
         <select onChange={handleInputChange} value={form.id} name="id" required>
           <option value="">Viagem</option>;
-          {trips.map((trip) => (
+          {trips && trips.map((trip) => (
             <option key={trip.id} value={trip.id}>{trip.name}</option>
           ))};
         </select>
@@ -51,7 +44,7 @@ const ApplicationFormPage = () => {
           placeholder="Nome" 
           onChange={handleInputChange} 
           value={form.name}
-          pattern="[A-Za-z]{3,}"
+          pattern="^[A-Za-zÀ-ú ']{3,}$"
           title="Deve conter no mínimo 3 letras"
           required
         />

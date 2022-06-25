@@ -33,9 +33,9 @@ const AdminHomePage = () => {
       </div>
       {loading 
         ? (<Loading />)
-        : (trips.map((trip) => (
-        <TripsADMP onClick={() => navigate(`/admin/trips/${trip.id}`)} key={trip.id}>
-          <p>{trip.name}</p>
+        : (trips && trips.map((trip) => (
+        <TripsADMP key={trip.id}>
+          <p onClick={() => navigate(`/admin/trips/${trip.id}`)} >{trip.name}</p>
           <img onClick={() => handleDelete(trip.id, trip.name)} src={Delete} alt={`Ícone para remoção da viagem ${trip.name}`} />
         </TripsADMP>
       )))}

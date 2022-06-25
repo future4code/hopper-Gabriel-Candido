@@ -19,8 +19,8 @@ const useTripDetails = () => {
     setLoading(false);
   };
 
-  const handleDecideCandidate = async (choice, tripId, candidateId) => {
-    await decideCandidate(choice, tripId, candidateId)
+  const handleDecideCandidate = async (choice, candidateId) => {
+    await decideCandidate(choice, id, candidateId)
     handleGetTripDetail()
   }
 

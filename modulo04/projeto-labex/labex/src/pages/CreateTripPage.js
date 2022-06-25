@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom"
 
 const CreateTripPage = () => {
   useProtectedPage()
-
   const navigate = useNavigate()
+  
   const {form, handleInputChange, clear} = useForm({
     name: '',
     planet: '',
@@ -19,15 +19,9 @@ const CreateTripPage = () => {
     duration: ''
   });
 
-  const handleCreate = async () => {
-    const body = {
-      name: form.name,
-      planet: form.planet,
-      date: form.date,
-      description: form.description,
-      durationInDays: form.duration
-    }
-    await createTrip(body, clear)
+  const handleCreate = async (e) => {
+    e.preventDefault()
+    await createTrip(form, clear)
   }
 
   return (
@@ -41,10 +35,12 @@ const CreateTripPage = () => {
           onChange={handleInputChange} 
           value={form.name}
           required
+          pattern="^[A-Za-zÀ-ú0-9 ']{5,}$"
+          title="Deve conter no mínimo 5 letras"
         />
         <select name="planet" onChange={handleInputChange} value={form.planet} required>
           <option value="">Escolha um planeta</option>
-          {planetList.map((planet) => (
+          {planetList && planetList.map((planet) => (
             <option key={planet.id} value={planet.nome}>{planet.nome}</option>
           ))}
         </select>
@@ -62,18 +58,21 @@ const CreateTripPage = () => {
           onChange={handleInputChange} 
           value={form.description}
           required
+          pattern=".{8,}"
+          title="Deve conter no mínimo 8 letras"
         />
         <input 
-          type="text" 
-          placeholder="Duração em dias" 
+          type="number" 
+          placeholder="Duração em dias (min - 30)" 
           name="duration" 
           onChange={handleInputChange} 
           value={form.duration}
           required
+          min={30}
         />
         <div>
           <Button click={() => navigate("/admin/trips/list")} type={'button'} text={"Voltar"} />
-          <Button type={'submit'} text={"Criar"} />
+          <Button text="Criar" />
         </div>
       </form>
     </ContainerCreateTrip>
