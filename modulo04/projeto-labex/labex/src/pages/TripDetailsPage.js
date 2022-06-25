@@ -30,7 +30,7 @@ const TripDetailsPage = () => {
           <Button click={() => navigate("/admin/trips/list")} text={"Voltar"}/>
           <h1>Candidatos Pendentes</h1>
           <ContainerCandidates>
-            {detail.candidates.length === 0 
+            {detail.candidates && detail.candidates.length === 0 
             ? (<p>Não há candidatos pendentes.</p>)
             : (detail.candidates && detail.candidates.map((candidate) => (
               <Candidates key={candidate.id}>
@@ -54,7 +54,7 @@ const TripDetailsPage = () => {
           </ContainerCandidates>
           <h1>Candidatos Aprovados</h1>
           <ul>
-            {detail.approved.length === 0
+            {detail.approved && detail.approved.length === 0
             ? (<p>Não há candidatos aprovados para essa viagem.</p>)
             : detail.approved && detail.approved.map((approved) => (
               <li key={approved.id}>{approved.name}</li>
