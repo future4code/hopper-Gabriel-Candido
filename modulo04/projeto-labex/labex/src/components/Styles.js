@@ -288,7 +288,6 @@ export const ContainerTDP = styled.div`
 `;
 
 export const TripDetail = styled.div`
-  width: 100%;
   padding-bottom: 35px;
   margin-bottom: 1em;
   border-bottom: 1px solid black;
