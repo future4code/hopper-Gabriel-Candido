@@ -11,7 +11,7 @@ const useGetCountries = () => {
   const handleGetCountries = async () => {
     setData(await getCountries());
   }
-  return { data }
+  return { data };
 }
 
-export default useGetCountries
+export default useGetCountries;

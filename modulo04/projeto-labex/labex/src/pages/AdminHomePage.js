@@ -1,8 +1,8 @@
 import Button from "../components/Button"
 import Loading from "../components/Loading"
-import Delete from "../assets/Delete.svg"
 import { ContainerADMP, TripsADMP } from "../components/Styles"
 import { deleteTrip } from "../services/ApiRequest"
+import Delete from "../assets/Delete.svg"
 
 import { useNavigate } from "react-router-dom"
 import useGetTrip from "../hooks/useGetTrip"
@@ -28,13 +28,13 @@ const AdminHomePage = () => {
       <h1>Painel Administrativo</h1>
       <div>
         <Button click={() => navigate("/")} text={'Voltar'} />
-        <Button text={'Criar Viagem'} />
+        <Button click={() => navigate("/admin/trips/create")} text={'Criar Viagem'} />
         <Button click={() => logout()} text={'Logout'} />
       </div>
       {loading 
         ? (<Loading />)
         : (trips.map((trip) => (
-        <TripsADMP key={trip.id}>
+        <TripsADMP onClick={() => navigate(`/admin/trips/${trip.id}`)} key={trip.id}>
           <p>{trip.name}</p>
           <img onClick={() => handleDelete(trip.id, trip.name)} src={Delete} alt={`Ícone para remoção da viagem ${trip.name}`} />
         </TripsADMP>

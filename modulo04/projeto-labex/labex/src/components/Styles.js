@@ -56,6 +56,7 @@ export const ContainerLoading = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 export const Spinner = styled.div`
@@ -183,10 +184,10 @@ export const ContainerAFP = styled.div`
     cursor: pointer;
   }
   @media screen and (max-width: 800px) {
-      form {
-        width: 90%;
-      }
+    form {
+      width: 90%;
     }
+  }
 `;
 
 export const ContainerLP = styled.div`
@@ -250,11 +251,105 @@ export const TripsADMP = styled.div`
     transform: scale(1.05)
   }
   img {
-    width: 2em;
+    width: 3em;
     border-radius: 50%;
     padding: 5px;
     &:hover{
       background: #ccc;
     }
+  }
+`;
+
+export const ContainerTDP = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    color: #335863;
+    margin: 5vh 0;
+    text-align: center;
+  }
+`;
+
+export const TripDetail = styled.div`
+  padding-bottom: 35px;
+  margin-bottom: 1em;
+  border-bottom: 1px solid black;
+  h1 {
+    color: #335863;
+    margin: 5vh 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  span {
+    color: #335863;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  p {
+    padding: .3em;
+  }
+`;
+
+export const ContainerCandidates = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const Candidates = styled.div`
+  width: 30%;
+  height: 35vh;
+  padding: 1%;
+  margin: 1%;
+  background: #eee;
+  border-left: 10px solid #335863;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 1px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  p {
+    word-wrap: break-word;
+  }
+  p:nth-child(5){
+    height: 10vh;
+    overflow: auto;
+    &::-webkit-scrollbar{
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track{
+      background: #fff;
+    }
+    &::-webkit-scrollbar-thumb{
+      background-color: #ccc;
+      border-radius: 20px;
+      border: 1px solid #335863;
+    }
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+    img {
+      width: 1.5em;
+      cursor: pointer;
+      transition: .1s linear;
+    }
+    img:hover{
+      transform: scale(1.2)
+    }
+  }
+`;
+
+export const ContainerCreateTrip = styled(ContainerAFP)`
+  div {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
   }
 `;
