@@ -4,6 +4,12 @@ const aluno = "gabriel-candido-hopper"
 const baseURL = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}`
 const countriesUrl = "https://servicodados.ibge.gov.br/api/v1/localidades/paises"
 
+const headers = {
+  headers: {
+    auth: localStorage.getItem("token")
+  }
+}
+
 export const getCountries = async () => {
   try {
     const { data } = await axios.get(countriesUrl)
@@ -52,11 +58,6 @@ export const login = async (body, clear, navigate) => {
 }
 
 export const deleteTrip = async (id, tripName) => {
-  const headers = {
-    headers: {
-      auth: localStorage.getItem("token")
-    }
-  }
   try {
     if(window.confirm(`${tripName} será apagada para sempre, você tem certeza?`)){
       await axios.delete(`${baseURL}/trips/${id}`, headers)
@@ -67,11 +68,6 @@ export const deleteTrip = async (id, tripName) => {
 }
 
 export const getTripDetail = async (id) => {
-  const headers = {
-    headers: {
-      auth: localStorage.getItem("token")
-    }
-  }
   try {
     const { data } = await axios.get(`${baseURL}/trip/${id}`, headers)
     return data.trip
@@ -81,11 +77,6 @@ export const getTripDetail = async (id) => {
 }
 
 export const decideCandidate = async (choice, tripId, candidateId) => {
-  const headers = {
-    headers: {
-      auth: localStorage.getItem("token")
-    }
-  }
   const body = {
     "approve": choice
   }
@@ -103,11 +94,6 @@ export const createTrip = async (form, clear) => {
     date: form.date,
     description: form.description,
     durationInDays: form.duration
-  }
-  const headers = {
-    headers: {
-      auth: localStorage.getItem("token")
-    }
   }
   try {
     await axios.post(`${baseURL}/trips`, body, headers)
