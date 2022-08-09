@@ -1,0 +1,18 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "clear && node ./index.js Gabriel 23",
+    "start-add": "clear && node ./index.js add 2 2",
+    "start-sub": "clear && node ./index.js sub 10 2",
+    "start-mult": "clear && node ./index.js mult 50 2",
+    "start-div": "clear && node ./index.js div 100 2",
+    "start-tarefa": "clear && node ./index.js"
+  },
+  "keywords": [],
+  "author": "Gabriel Candido",
+  "license": "ISC"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "exercicio2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-add": "clear && node ./index.js add 2 2",
+    "start-sub": "clear && node ./index.js sub 10 2",
+    "start-mult": "clear && node ./index.js mult 50 2",
+    "start-div": "clear && node ./index.js div 100 2"
+  },
+  "keywords": [],
+  "author": "Gabriel Candido",
+  "license": "ISC"
+}
