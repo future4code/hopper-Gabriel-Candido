@@ -1,0 +1,1 @@
+// A) "JSX" me chamou a atenção, pois aparentemente podemos utilizar o React com o Typescript simultaneamente. O arquivo criado pelos slides, facilitam em deixar somente as configurações bases para podermos utilizar o TypeScript de fato.
