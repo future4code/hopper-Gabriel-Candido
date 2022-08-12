@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./build/exercicio05.js"
+    "start": "tsc && node ./build/exercicio08.js"
   },
   "keywords": [],
   "author": "Gabriel Candido",
   "license": "ISC",
   "dependencies": {
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.2"
   }
 }

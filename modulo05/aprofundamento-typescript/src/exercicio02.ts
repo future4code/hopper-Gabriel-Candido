@@ -31,10 +31,6 @@ console.log(obterEstatisticas([1,2,3,4,5,6,7,8,9]))
 // R: 
 
 type Amostra = {
-  numeros: [21, 18, 65, 44, 15, 18],
-  obterEstatisticas: (numeros: number[]) => {
-    maior: number,
-    menor: number,
-    media: number
-  }
+  numeros: number[],
+  obterEstatisticas: (numeros: number[]) => Object
 }
