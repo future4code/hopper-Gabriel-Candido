@@ -59,12 +59,12 @@ app.get('/afazeres', (req: Request, res: Response) => {
 // Ex 5 -
 // http://localhost:3003/afazeres
 app.post('/afazeres', (req: Request, res: Response) => {
-  const { userId, id, title, completed }: Afazeres = req.body
-  if(!userId || !id || !title || !completed) {
+  const { userId, title }: Afazeres = req.body
+  if(!userId || !title) {
     res.status(400).send("Algum argumento está faltando no body!")
   }
   
-  afazeres.push({ userId, id, title, completed })
+  afazeres.push({ userId, id: Date.now().toString(), title, completed: 'false' })
   res.status(200).send({ afazeres })
 })
 
