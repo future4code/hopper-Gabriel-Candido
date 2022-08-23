@@ -44,7 +44,7 @@ app.post("/create", (req: Request, res: Response) => {
     res.status(201).send(data);
 
   } catch ( error: any ) {
-    res.status(statusCode).send(error.message);
+    res.status(statusCode).send({message: error.message});
   };
 });
 
@@ -63,7 +63,7 @@ app.get("/products", (req: Request, res: Response) => {
       res.status(200).send(data);
     }
   } catch ( error: any ) {
-    res.status(statusCode).send(error.message)
+    res.status(statusCode).send({message: error.message})
   };
 });
 
@@ -108,7 +108,7 @@ app.put("/products/edit", (req: Request, res: Response) => {
     res.status(200).send(data);
 
   } catch ( error: any ) {
-    res.status(statusCode).send(error.message);
+    res.status(statusCode).send({message: error.message});
   };
 });
 
@@ -131,7 +131,7 @@ app.delete("/products/delete" , (req: Request, res: Response) => {
     data.splice(busca, 1)
     res.status(200).send(data)
   } catch ( error: any ) {
-    res.status(statusCode).send(error.message)
+    res.status(statusCode).send({message: error.message})
   }
 })
 
