@@ -1,17 +1,16 @@
-const calc = (valor: string) => {
-  const spliter: string[] = valor.split("/")
+import { currDate } from "./currDate"
+
+const calc = (value: string) => {
+  const spliter: string[] = value.split("/")
   const DAY: number = Number(spliter[0])
   const MONTH: number = Number(spliter[1])
   const YEAR: number = Number(spliter[2])
-
-  const dataAtual: Date = new Date()
-  const diaAtual: number = dataAtual.getDate()
-  const mesAtual: number = dataAtual.getMonth() + 1
-  const anoAtual: number = dataAtual.getFullYear()
+  
+  const { currDay, currMonth, currYear } = currDate()
 
   let date: number
 
-  mesAtual >= MONTH && diaAtual >= DAY ? date = anoAtual - YEAR : date = anoAtual - YEAR - 1
+  currMonth >= MONTH && currDay >= DAY ? date = currYear - YEAR : date = currYear - YEAR - 1
 
   return date
 }
