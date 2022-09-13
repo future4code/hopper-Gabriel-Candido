@@ -15,4 +15,4 @@ const connection = knex({
    },
 });
 
-export default connection
+export default connection;
