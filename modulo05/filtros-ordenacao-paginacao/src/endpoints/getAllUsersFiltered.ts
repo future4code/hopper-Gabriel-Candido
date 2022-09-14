@@ -1,46 +1,48 @@
 import { Request, Response } from "express"
-import selectAllUsers from "../queryEndpoint/selectAllUsers"
-import selectType from "../queryEndpoint/selectType"
-import selectUser from "../queryEndpoint/selectUser"
+import selectAllUsersFiltered from "../queryEndpoint/selectAllUsersFiltered"
 
 export const getAllUsersFiltered = async(req: Request,res: Response): Promise<void> =>{
   try {
-    const name = req.query.name as string
+    let name = req.query.name as string
     let type = req.query.type as string
-    if(name) {
-      const user = await selectUser(name)
-      if(!user.length){
-        res.statusCode = 404
-        throw new Error("No recipes found")
-      }
-      res.status(200).send(user)
-    }
-    if(type){
-      if(type.toLowerCase() !== "teacher" && type.toLowerCase() !== "operations" && type.toLowerCase() !== "cx"){
-        type = "Teacher"
-      }
-  
-      const users = await selectType(type)
-  
-      if(!users.length){
-        res.statusCode = 404
-        throw new Error("No recipes found")
-      }
-  
-      res.status(200).send(users)
-    }
-    if(name && type){
+    let sort = req.query.sort as string
+    let order = req.query.order as string
+    let limit = Number(req.query.limit)
+    let page = Number(req.query.page)
 
+    if(!name){
+      name = "%"
     }
-    const users = await selectAllUsers()
 
+    if(!type){
+      type = "%"
+    }
+
+    if(!sort || sort !== "name" && sort !== "type" && sort !== "id" && sort !== "email"){
+      sort = "name"
+    }
+
+    if(!order || order !== "asc" && order !== "desc"){
+      order = "desc"
+    }
+
+    if(!page){
+      page = 1
+    }
+
+    if(!limit){
+      limit = 5
+    }
+
+    const noPage = Math.min(limit * (page -1), 1)
+
+    const users = await selectAllUsersFiltered(name, type, sort, order, limit, page)
+    
     if(!users.length){
       res.statusCode = 404
-      throw new Error("No recipes found")
+      throw new Error("Users not found");
     }
-
     res.status(200).send(users)
-     
   } catch (error) {
     console.log(error)
     res.send(error.message || error.sqlMessage)
