@@ -7,7 +7,7 @@ export class UserController {
       const userBusiness = new UserBusiness();
       const users = await userBusiness.get()
 
-      res.status(200).send({users})
+      res.status(200).send(users)
     } catch (error: any) {
       res.status(400).send(error.message);
     }

@@ -9,3 +9,16 @@ Content-Type: application/json
 
 ### Ex 1-
 GET http://localhost:3003/user
+
+### Ex 2-
+GET http://localhost:3003/movie
+###
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title": "Jumanji",
+    "description": "Uma ótima história de suspense e aventura!",
+    "duration_in_minutes": 125,
+    "year_of_release": 1998
+}
