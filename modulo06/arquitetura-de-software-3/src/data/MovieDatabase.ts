@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { Movie } from "../types/Movie";
+import { Movie } from "../model/Movie";
 
 export class MovieDatabase extends BaseDatabase {
   private static TABLE_NAME = "LABEFLIX_MOVIE";

@@ -1,6 +1,8 @@
 import { MovieDatabase } from "../data/MovieDatabase"
-import { v4 as generateId } from 'uuid'
-import { Movie } from "../types/Movie"
+import { CustomError } from "../Error/CustomError"
+import { Movie } from "../model/Movie"
+import { MovieInputDTO } from "../model/MovieDTO"
+import { generateId } from "../services/generateId"
 
 export class MovieBusiness {
   async get():Promise<Movie[]> {
@@ -8,21 +10,27 @@ export class MovieBusiness {
     return await movieDatabase.get()
   }
 
-  async create({ title, description, duration_in_minutes, year_of_release }: any):Promise<void> {
-    if ( !title || !description || !duration_in_minutes || !year_of_release ) {
-      throw new Error("Dados inválidos (title, description, duration_in_minutes, year_of_release)")
+  async create(input: MovieInputDTO):Promise<void> {
+    try {
+      const { title, description, duration_in_minutes, year_of_release } = input
+
+      if ( !title || !description || !duration_in_minutes || !year_of_release ) {
+        throw new CustomError(422,"Dados inválidos (title, description, duration_in_minutes, year_of_release)")
+      }
+  
+      const id = generateId()
+  
+      const movieDatabase = new MovieDatabase()
+      await movieDatabase.create({
+        id,
+        title,
+        description,
+        duration_in_minutes,
+        year_of_release
+      })
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message || error.sqlMessage);
     }
-
-    const id = generateId()
-
-    const movieDatabase = new MovieDatabase()
-    await movieDatabase.create({
-      id,
-      title,
-      description,
-      duration_in_minutes,
-      year_of_release
-    })
   }
 
 }

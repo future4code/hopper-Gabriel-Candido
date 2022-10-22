@@ -1,6 +1,8 @@
 import { UserDatabase } from "../data/UserDatabase"
-import { v4 as generateId } from 'uuid'
-import { User } from "../types/User"
+import { CustomError } from "../Error/CustomError"
+import { User } from "../model/User"
+import { UserInputDTO } from "../model/UserDTO"
+import { generateId } from "../services/generateId"
 
 export class UserBusiness {
   async get():Promise<User[]> {
@@ -8,20 +10,27 @@ export class UserBusiness {
     return await userDatabase.get()
   }
 
-  async create({ email, name, password }: any):Promise<void> {
-    if (!email || !name || !password) {
-      throw new Error("Dados inválidos (email, name, password)")
+  async create(input: UserInputDTO):Promise<void> {
+    try {
+      const {email, name, password} = input
+
+      if (!email || !name || !password) {
+        throw new CustomError(422, "Dados inválidos (email, name, password)")
+      }
+  
+      const id = generateId()
+  
+      const userDatabase = new UserDatabase()
+      await userDatabase.create({
+        id,
+        email,
+        name,
+        password
+      })
+
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message || error.sqlMessage);
     }
-
-    const id = generateId()
-
-    const userDatabase = new UserDatabase()
-    await userDatabase.create({
-      id,
-      name,
-      email,
-      password
-    })
   }
 
 }

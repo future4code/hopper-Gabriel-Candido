@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
+import { UserInputDTO } from "../model/UserDTO";
 
 export class UserController {
   async get(req: Request, res: Response):Promise<void> {
@@ -17,8 +18,14 @@ export class UserController {
     try {
       const { email, name, password } = req.body;
 
+      const input: UserInputDTO = {
+        email,
+        name,
+        password
+      }
+
       const userBusiness = new UserBusiness();
-      await userBusiness.create({ email, name, password });
+      await userBusiness.create(input);
 
       res.status(201).send({ message: "Usuário cadastrado com sucesso" });
     } catch (error: any) {
