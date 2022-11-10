@@ -1,0 +1,19 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+  "name" : "Gabriel",
+  "email" : "gabriel@email.com",
+  "password" : "senha"
+}
+
+###
+POST http://localhost:3003/post
+Content-Type: application/json
+
+{
+  "photo" : "https://segundafotominha.com",
+  "description" : "Minha Segunda Foto",
+  "type" : "Normal",
+  "authorId" : "c8836c2d-8c4a-4ff1-b0a4-6dc3650d5391"
+}
