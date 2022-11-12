@@ -33,7 +33,7 @@ export class UserDatabase extends BaseDatabase {
   public getUserById = async ( id: string ) => {
     try {
       const data = await UserDatabase.connection
-      .select("email", "password")
+      .select("id", "email")
       .where({id})
       .into("Auth_users");
 

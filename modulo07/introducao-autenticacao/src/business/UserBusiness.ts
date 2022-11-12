@@ -96,7 +96,7 @@ export class UserBusiness {
       const tokenInfo = generateToken.compare(token)
       
       const userDatabase = new UserDatabase();
-      const userInfo = userDatabase.getUserById(tokenInfo.id)
+      const userInfo = await userDatabase.getUserById(tokenInfo.id)
 
       return userInfo
     } catch (error: any) {
